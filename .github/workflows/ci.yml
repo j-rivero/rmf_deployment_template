@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       chart_configuration: --charts rmf-deployment/
-      helm_args: --helm-extra-set-args "--set global.DDS_ENV=''"
+      helm_args: --helm-extra-set-args "--set global.DDS_ENV=SKIP_CUSTOM_DDS_CONFIG"
     steps:
       - name: Checkout
         uses: actions/checkout@v3
