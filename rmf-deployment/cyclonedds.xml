@@ -2,8 +2,7 @@
         <Domain id="any">
                 <General>
                         <Interfaces>
-                                <NetworkInterface name="cni0" priority="default" multicast="true"/> <!--Cluster network-->
-                                <!-- <NetworkInterface name="wg0" multicast="false"/> --> <!--Example interface for connecting remote devices over wireguard vpn-->
+                          <NetworkInterface>auto</NetworkInterface>
                         </Interfaces>
                         <AllowMulticast>default</AllowMulticast>
                         <MaxMessageSize>8192B</MaxMessageSize>
