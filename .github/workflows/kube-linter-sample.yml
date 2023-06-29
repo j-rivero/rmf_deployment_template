@@ -7,6 +7,9 @@ on:
 jobs:
   scan:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read # for actions/checkout to fetch code
+      security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
     steps:
       - uses: actions/checkout@v2
 
@@ -27,7 +30,7 @@ jobs:
         uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: ../results/kube-linter.sarif
-          category: kube-linterr
+          category: kube-linter
 
       - name: Verify kube-linter-action succeeded
         shell: bash
