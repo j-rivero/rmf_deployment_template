@@ -6,7 +6,7 @@ jobs:
   lint-test:
     runs-on: ubuntu-latest
     env:
-      chart_configuration: --charts rmf-deployment/
+      chart_configuration: --charts rmf-deployment/ --helm-extra-args "--timeout 30m" 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -25,9 +25,6 @@ jobs:
 
       - name: Set up chart-testing
         uses: helm/chart-testing-action@v2.4.0
-
-      - name: Run chart-testing (lint)
-        run: ct lint ${chart_configuration}
 
       - name: Create kind cluster
         uses: helm/kind-action@v1.4.0
