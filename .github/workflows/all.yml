@@ -6,7 +6,7 @@ jobs:
   lint-test:
     runs-on: ubuntu-latest
     env:
-      chart_configuration: --charts rmf-deployment/
+      chart_configuration: --debug --charts rmf-deployment/ --helm-extra-args \"--timeout 30m\"
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -30,4 +30,4 @@ jobs:
         uses: helm/kind-action@v1.4.0
 
       - name: Run chart-testing (install)
-        run: ct install ${chart_configuration} --helm-extra-args "--timeout 30m"
+        run: ct install ${chart_configuration}
